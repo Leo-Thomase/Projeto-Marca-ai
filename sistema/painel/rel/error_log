@@ -1,0 +1,8 @@
+[28-Feb-2023 15:37:03 America/Sao_Paulo] PHP Warning:  Undefined array key "dataInicial" in /home3/stud6263/public_html/sistema/painel/rel/rel_lucro_class.php on line 5
+[28-Feb-2023 15:37:03 America/Sao_Paulo] PHP Warning:  Undefined array key "dataFinal" in /home3/stud6263/public_html/sistema/painel/rel/rel_lucro_class.php on line 6
+[07-Mar-2023 20:20:22 America/Sao_Paulo] PHP Warning:  Undefined array key "dataInicial" in /home3/stud6263/public_html/sistema/painel/rel/rel_lucro_class.php on line 5
+[07-Mar-2023 20:20:22 America/Sao_Paulo] PHP Warning:  Undefined array key "dataFinal" in /home3/stud6263/public_html/sistema/painel/rel/rel_lucro_class.php on line 6
+[27-Mar-2023 08:20:55 America/Sao_Paulo] PHP Warning:  Undefined array key "dataInicial" in /home3/stud6263/public_html/sistema/painel/rel/rel_servicos_class.php on line 5
+[27-Mar-2023 08:20:55 America/Sao_Paulo] PHP Warning:  Undefined array key "dataFinal" in /home3/stud6263/public_html/sistema/painel/rel/rel_servicos_class.php on line 6
+[27-Mar-2023 08:20:55 America/Sao_Paulo] PHP Warning:  Undefined array key "pgto" in /home3/stud6263/public_html/sistema/painel/rel/rel_servicos_class.php on line 7
+[27-Mar-2023 08:20:55 America/Sao_Paulo] PHP Warning:  Undefined array key "servico" in /home3/stud6263/public_html/sistema/painel/rel/rel_servicos_class.php on line 8

@@ -1,0 +1,4 @@
+[27-Feb-2023 17:18:22 America/Sao_Paulo] PHP Warning:  Undefined array key "id" in /home3/stud6263/public_html/sistema/painel/paginas/funcionarios/inserir-horario.php on line 5
+[27-Feb-2023 17:18:22 America/Sao_Paulo] PHP Warning:  Undefined array key "horario" in /home3/stud6263/public_html/sistema/painel/paginas/funcionarios/inserir-horario.php on line 6
+[27-Feb-2023 17:20:29 America/Sao_Paulo] PHP Warning:  Undefined array key "func" in /home3/stud6263/public_html/sistema/painel/paginas/funcionarios/listar-horarios.php on line 5
+[13-Mar-2023 11:49:18 America/Sao_Paulo] PHP Warning:  Undefined array key "func" in /home3/stud6263/public_html/sistema/painel/paginas/funcionarios/listar-servicos.php on line 5

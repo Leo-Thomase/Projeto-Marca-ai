@@ -1,0 +1,13 @@
+[06-Mar-2023 19:44:06 America/Sao_Paulo] PHP Warning:  Undefined array key 0 in /home3/stud6263/public_html/sistema/painel/paginas/meus_servicos/excluir.php on line 10
+[06-Mar-2023 19:44:06 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in /home3/stud6263/public_html/sistema/painel/paginas/meus_servicos/excluir.php on line 10
+[06-Mar-2023 19:44:06 America/Sao_Paulo] PHP Warning:  Undefined array key 0 in /home3/stud6263/public_html/sistema/painel/paginas/meus_servicos/excluir.php on line 11
+[06-Mar-2023 19:44:06 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in /home3/stud6263/public_html/sistema/painel/paginas/meus_servicos/excluir.php on line 11
+[06-Mar-2023 19:44:06 America/Sao_Paulo] PHP Warning:  Undefined array key 0 in /home3/stud6263/public_html/sistema/painel/paginas/meus_servicos/excluir.php on line 12
+[06-Mar-2023 19:44:06 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in /home3/stud6263/public_html/sistema/painel/paginas/meus_servicos/excluir.php on line 12
+[10-Apr-2023 10:55:25 America/Sao_Paulo] PHP Warning:  Undefined array key "id" in /home3/stud6263/public_html/sistema/painel/paginas/meus_servicos/excluir.php on line 5
+[10-Apr-2023 10:55:25 America/Sao_Paulo] PHP Warning:  Undefined array key 0 in /home3/stud6263/public_html/sistema/painel/paginas/meus_servicos/excluir.php on line 10
+[10-Apr-2023 10:55:25 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in /home3/stud6263/public_html/sistema/painel/paginas/meus_servicos/excluir.php on line 10
+[10-Apr-2023 10:55:25 America/Sao_Paulo] PHP Warning:  Undefined array key 0 in /home3/stud6263/public_html/sistema/painel/paginas/meus_servicos/excluir.php on line 11
+[10-Apr-2023 10:55:25 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in /home3/stud6263/public_html/sistema/painel/paginas/meus_servicos/excluir.php on line 11
+[10-Apr-2023 10:55:25 America/Sao_Paulo] PHP Warning:  Undefined array key 0 in /home3/stud6263/public_html/sistema/painel/paginas/meus_servicos/excluir.php on line 12
+[10-Apr-2023 10:55:25 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in /home3/stud6263/public_html/sistema/painel/paginas/meus_servicos/excluir.php on line 12

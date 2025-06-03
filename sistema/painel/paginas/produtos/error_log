@@ -1,0 +1,5 @@
+[24-Feb-2023 10:18:05 America/Sao_Paulo] PHP Warning:  Undefined array key "id" in /home3/stud6263/public_html/sistema/painel/paginas/produtos/excluir.php on line 5
+[24-Feb-2023 10:18:05 America/Sao_Paulo] PHP Warning:  Undefined array key 0 in /home3/stud6263/public_html/sistema/painel/paginas/produtos/excluir.php on line 10
+[24-Feb-2023 10:18:05 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in /home3/stud6263/public_html/sistema/painel/paginas/produtos/excluir.php on line 10
+[28-Feb-2023 15:15:14 America/Sao_Paulo] PHP Warning:  Undefined variable $categoria in /home3/stud6263/public_html/sistema/painel/paginas/produtos/salvar.php on line 69
+[28-Feb-2023 15:23:39 America/Sao_Paulo] PHP Warning:  Undefined variable $categoria in /home3/stud6263/public_html/sistema/painel/paginas/produtos/salvar.php on line 69

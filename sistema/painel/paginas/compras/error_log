@@ -1,0 +1,16 @@
+[28-Feb-2023 15:27:08 America/Sao_Paulo] PHP Warning:  Undefined array key "id" in /home3/stud6263/public_html/sistema/painel/paginas/compras/salvar.php on line 5
+[28-Feb-2023 15:27:08 America/Sao_Paulo] PHP Warning:  Undefined array key "id" in /home3/stud6263/public_html/sistema/painel/paginas/compras/salvar.php on line 7
+[28-Feb-2023 15:27:08 America/Sao_Paulo] PHP Warning:  Undefined array key "produto" in /home3/stud6263/public_html/sistema/painel/paginas/compras/salvar.php on line 8
+[28-Feb-2023 15:27:08 America/Sao_Paulo] PHP Warning:  Undefined array key "valor" in /home3/stud6263/public_html/sistema/painel/paginas/compras/salvar.php on line 9
+[28-Feb-2023 15:27:08 America/Sao_Paulo] PHP Warning:  Undefined array key "data_venc" in /home3/stud6263/public_html/sistema/painel/paginas/compras/salvar.php on line 11
+[28-Feb-2023 15:27:08 America/Sao_Paulo] PHP Warning:  Undefined array key "data_pgto" in /home3/stud6263/public_html/sistema/painel/paginas/compras/salvar.php on line 12
+[28-Feb-2023 15:27:08 America/Sao_Paulo] PHP Warning:  Undefined array key "quantidade" in /home3/stud6263/public_html/sistema/painel/paginas/compras/salvar.php on line 13
+[28-Feb-2023 15:28:42 America/Sao_Paulo] PHP Warning:  Undefined array key "id" in /home3/stud6263/public_html/sistema/painel/paginas/compras/excluir.php on line 5
+[28-Feb-2023 15:28:42 America/Sao_Paulo] PHP Warning:  Undefined array key 0 in /home3/stud6263/public_html/sistema/painel/paginas/compras/excluir.php on line 10
+[28-Feb-2023 15:28:42 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in /home3/stud6263/public_html/sistema/painel/paginas/compras/excluir.php on line 10
+[28-Feb-2023 15:28:42 America/Sao_Paulo] PHP Warning:  Undefined array key 0 in /home3/stud6263/public_html/sistema/painel/paginas/compras/excluir.php on line 11
+[28-Feb-2023 15:28:42 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in /home3/stud6263/public_html/sistema/painel/paginas/compras/excluir.php on line 11
+[28-Feb-2023 15:28:42 America/Sao_Paulo] PHP Warning:  Undefined array key 0 in /home3/stud6263/public_html/sistema/painel/paginas/compras/excluir.php on line 12
+[28-Feb-2023 15:28:42 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in /home3/stud6263/public_html/sistema/painel/paginas/compras/excluir.php on line 12
+[28-Feb-2023 15:28:42 America/Sao_Paulo] PHP Warning:  Undefined array key 0 in /home3/stud6263/public_html/sistema/painel/paginas/compras/excluir.php on line 21
+[28-Feb-2023 15:28:42 America/Sao_Paulo] PHP Warning:  Trying to access array offset on value of type null in /home3/stud6263/public_html/sistema/painel/paginas/compras/excluir.php on line 21

@@ -1,0 +1,20 @@
+{
+	"name": "Studio NeyMarques",
+	"short_name": "Studio NeyMarques",
+	"icons": [
+		{
+			"src": "logo.png",
+			"sizes": "180x180",
+			"type": "image/png"
+		},
+		{
+			"src": "teste.png",
+			"sizes": "24x24",
+			"type": "image/png"
+		}
+	],
+	"start_url": "/neymarques/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#ffffff"
+}
