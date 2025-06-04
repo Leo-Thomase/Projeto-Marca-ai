@@ -218,11 +218,6 @@ $dataMesInicial = $partesInicial[1];
 													class="fa fa-angle-right"></i>Funcionários</a></li>
 										<li class="<?php echo @$clientes ?>"><a href="index.php?pag=clientes"><i
 													class="fa fa-angle-right"></i>Clientes</a></li>
-
-										<li class="<?php echo @$clientes_retorno ?>"><a
-												href="index.php?pag=clientes_retorno"><i
-													class="fa fa-angle-right"></i>Clientes Retornos</a></li>
-
 									</ul>
 								</li>
 

@@ -1,394 +1,150 @@
-<?php require_once("cabecalho.php") ?>
-
-
 <?php 
-$query = $pdo->query("SELECT * FROM textos_index ORDER BY id asc");
-$res = $query->fetchAll(PDO::FETCH_ASSOC);
-$total_reg = @count($res);
-if($total_reg > 0){
- ?>
-    <!-- slider section -->
-    <section class="slider_section ">
-      <div id="customCarousel1" class="carousel slide" data-ride="carousel">
-        <div class="carousel-inner">
-
-<?php 
-for($i=0; $i < $total_reg; $i++){
-  foreach ($res[$i] as $key => $value){}
-  $id = $res[$i]['id'];
-  $titulo = $res[$i]['titulo'];
-  $descricao = $res[$i]['descricao'];
-
-  $descricaoF = mb_strimwidth($descricao, 0, 50, "...");
-
-  if($i == 0){
-    $ativo = 'active';
-  }else{
-    $ativo = '';
-  }
- ?>
-
-          <div class="carousel-item <?php echo $ativo ?>">
-            <div class="container ">
-              <div class="row">
-                <div class="col-md-6 ">
-                  <div class="detail-box">
-                    <h1>
-                     <?php echo $titulo ?>
-                    </h1>
-                    <p>
-                     <?php echo $descricao ?>
-                    </p>
-                    <div class="btn-box">
-                      <a href="http://api.whatsapp.com/send?1=pt_BR&phone=<?php echo $tel_whatsapp ?>" target="_blank" class="btn1">
-                        Contate-nos
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-<?php 
-}
- ?>
-
-          
-        </div>
-        <div class="container">
-          <div class="carousel_btn-box">
-            <a class="carousel-control-prev" href="#customCarousel1" role="button" data-slide="prev">
-              <i class="fa fa-arrow-left" aria-hidden="true"></i>
-              <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#customCarousel1" role="button" data-slide="next">
-              <i class="fa fa-arrow-right" aria-hidden="true"></i>
-              <span class="sr-only">Next</span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- end slider section -->
-
-  <?php } ?>
-
-  </div>
-
-
-  <!-- product section -->
-
-  <section class="product_section layout_padding">
-    <div class="container">
-      <div class="heading_container heading_center ">
-        <h2 class="">
-          Nossos Serviços
-        </h2>
-        <p class="col-lg-8 px-0">
-          <?php 
-         
-$query = $pdo->query("SELECT * FROM servicos where ativo = 'Sim' ORDER BY id asc");
-$res = $query->fetchAll(PDO::FETCH_ASSOC);
-$total_reg = @count($res);
-if($total_reg > 0){ 
+require_once("cabecalho.php");
+$data_atual = date('Y-m-d');
 ?>
-        </p>
-      </div>
-      <div class="product_container">
-        <div class="product_owl-carousel owl-carousel owl-theme ">
+<style type="text/css">
+	.sub_page .hero_area {
+		min-height: auto;
+	}
+</style>
 
-<?php 
-for($i=0; $i < $total_reg; $i++){
-  foreach ($res[$i] as $key => $value){}
- 
-  $id = $res[$i]['id'];
-  $nome = $res[$i]['nome'];   
-  $valor = $res[$i]['valor'];
-  $foto = $res[$i]['foto'];
-   $valorF = number_format($valor, 2, ',', '.');
-   $nomeF = mb_strimwidth($nome, 0, 20, "...");
- ?>
+</div>
+<div class="footer_section" style="background: #000000; ">
+    <div class="container" >
+		<div class="footer_content " >
+			<form id="form-agenda" method="post" style="margin-top: -25px !important">
+			<div class="footer_form footer-col">
+				<div class="form-group">
+					<input onkeyup="buscarNome()" class="form-control" type="text" name="telefone" id="telefone" placeholder="Seu Telefone DDD + número" required />
+				</div>
 
-          <div class="item">
-            <div class="box">
-              <div class="img-box">
-                <img src="sistema/painel/img/servicos/<?php echo $foto ?>" alt="">
-              </div>
-              <div class="detail-box">
-                <h4>
-                  <?php echo $nomeF ?>
-                </h4>
-                <h6 class="price">
-                  <span class="new_price">
-                    R$ <?php echo $valorF ?>
-                  </span>
-                
-                </h6>
-                <a href="agendamentos">
-                  Agendar
+				<div class="form-group">
+					<input onclick="buscarNome()" class="form-control" type="text" name="nome" id="nome" placeholder="Seu Nome" required />
+				</div>
+
+				<div class="form-group">
+					<input onchange="mudarFuncionario()" class="form-control" type="date" name="data" id="data" value="<?php echo $data_atual ?>" required />
+				</div>
+
+
+
+				<div class="form-group"> 							
+					<select onchange="mudarServico()" class="form-control sel2" id="servico" name="servico" style="width:100%;" required> 
+						<option value="">Selecione um Serviço</option>
+
+						<?php 
+						$query = $pdo->query("SELECT * FROM servicos ORDER BY nome asc");
+						$res = $query->fetchAll(PDO::FETCH_ASSOC);
+						$total_reg = @count($res);									
+						if($total_reg > 0){
+							for($i=0; $i < $total_reg; $i++){
+								foreach ($res[$i] as $key => $value){}
+									$valor = $res[$i]['valor'];
+								$valorF = number_format($valor, 2, ',', '.');
+
+								echo '<option value="'.$res[$i]['id'].'">'.$res[$i]['nome'].' - R$ '.$valorF.'</option>';
+							}
+						}
+
+						?>
+
+
+					</select>    
+
+				</div>		
+
+				<div class="form-group" style="display: none">			
+					<select class="form-control" id="funcionario" name="funcionario" style="width:100%;" onchange="mudarFuncionario()" required>
+					echo '<option value=""><?php echo $texto_agendamento ?></option>';
+					</select>   
+				</div> 	
+
+
+				<div class="form-group"> 								
+					<div id="listar-horarios">
+						
+					</div>
+				</div>	
+
+
+					  <button onclick="salvar()" class="botao-verde" type="submit" style="width:100%;">
+                 <span id='botao_salvar'>Confirmar Agendamento</span>
+                   
+                </button>
+
+                  <a href="meus-agendamentos.php" class="botao-azul" id='botao_editar' style="width:100%; text-align: center; margin-top: 5px">              
+                  Ver Agendamentos
                 </a>
-              </div>
-            </div>
-          </div>
-
-<?php 
-}
- ?>
-
-         
-        </div>
-      </div>
-
-    <?php } ?>
-    </div>
-  </section>
-
-  <!-- product section ends -->
-
-  <!-- about section -->
-
-  <section class="about_section ">
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-md-6 px-0">
-          <div class="img-box ">
-            <img src="images/<?php echo $imagem_sobre ?>" class="box_img" alt="about img">
-          </div>
-        </div>
-        <div class="col-md-5">
-          <div class="detail-box ">
-            <div class="heading_container">
-              <h2 class="">
-                Sobre Nós
-              </h2>
-            </div>
-            <p class="detail_p_mt">
-              <?php echo $texto_sobre ?>
-            </p>
-            <a href="http://api.whatsapp.com/send?1=pt_BR&phone=<?php echo $tel_whatsapp ?>" class="">
-              Mais Informações
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- about section ends -->
-
-  <!-- product section -->
-
-  <?php 
-$query = $pdo->query("SELECT * FROM produtos where estoque > 0 and valor_venda >  0 ORDER BY id desc limit 8");
-$res = $query->fetchAll(PDO::FETCH_ASSOC);
-$total_reg = @count($res);
-if($total_reg > 0){ 
-   ?>
-
-  <section class="product_section layout_padding">
-    <div class="container-fluid">
-      <div class="heading_container heading_center ">
-        <h2 class="">
-          Nossos Produtos
-        </h2>
-       
-      </div>
-      <div class="row">
-
-<?php 
-for($i=0; $i < $total_reg; $i++){
-  foreach ($res[$i] as $key => $value){}
- 
-  $id = $res[$i]['id'];
-  $nome = $res[$i]['nome'];   
-  $valor = $res[$i]['valor_venda'];
-  $foto = $res[$i]['foto'];
-  $descricao = $res[$i]['descricao'];
-   $valorF = number_format($valor, 2, ',', '.');
- $nomeF = mb_strimwidth($nome, 0, 23, "...");
-
- ?>
-
-        <div class="col-sm-6 col-md-3">
-          <div class="box">
-            <div class="img-box">
-              <img src="sistema/painel/img/produtos/<?php echo $foto ?>" title="<?php echo $descricao ?>">
-            </div>
-            <div class="detail-box">
-              <h5>
-               <?php echo $nomeF ?>
-              </h5>
-              <h6 class="price">
-                <span class="new_price">
-                 R$ <?php echo $valorF ?>
-                </span>
                
-              </h6>
-            </div>
-          </div>
+
+                <br><br>
+               <small> <div id="mensagem" align="center"></div></small>			
+
+               <input type="text" id="data_oculta" style="display: none">	
+                <input type="hidden" id="id" name="id">	
+                 <input type="hidden" id="hora_rec" nome="hora_rec">	
+                  <input type="hidden" id="nome_func" nome="nome_func">	
+                  <input type="hidden" id="data_rec" nome="data_rec">	
+                    <input type="hidden" id="nome_serv" nome="nome_serv">			
+								<div>
+        <p>Atenção: Caso necessite cancelar o agendamento, faça com 24 HORAS DE ANTECEDÊNCIA.</p>
+        <p>Para realizar o cancelamento: Digite o número do seu celular e clique no botão: Ver agendamentos e exclua o agendamento clicando na lixeira</p>
         </div>
-      
-   <?php } ?>    
+
+			</div>
 
 
-      </div>
-      <div class="btn-box">
-        <a href="produtos">
-          Ver mais Produtos
-        </a>
-      </div>
-    </div>
-  </section>
-
-<?php } ?>
-
-  <!-- product section ends -->
+			</div>
 
 
-  <!-- contact section -->
-    <section class="contact_section layout_padding-bottom" style="background-color: black; padding: 30px;">
-    <div class="container">
-      <div class="heading_container heading_center">
-        <h2 style="color: white;">
-          Nossa localização
-        </h2>
-      </div>
-        </div>
-        <div class="col-md-12" align="center">
-          <div class="map_container ">
-           <?php echo $mapa ?>
-          </div>
-        </div>
-  </section>
-  <!-- end contact section -->
 
-  <!-- client section -->
-<?php 
-$query = $pdo->query("SELECT * FROM comentarios where ativo = 'Sim' ORDER BY id asc");
-$res = $query->fetchAll(PDO::FETCH_ASSOC);
-$total_reg = @count($res);
-if($total_reg > 0){ 
- ?>
-  <section class="client_section layout_padding-bottom">
-    <div class="container">
-      <div class="heading_container heading_center">
-        <h2 style="padding-top: 30px;">
-          Depoimento dos nossos Clientes
-        </h2>
-      </div>
-      <div class="client_container">
-        <div class="carousel-wrap">
-          <div class="owl-carousel client_owl-carousel">
-
-            <?php 
-            for($i=0; $i < $total_reg; $i++){
-          foreach ($res[$i] as $key => $value){}
- 
-          $id = $res[$i]['id'];
-          $nome = $res[$i]['nome'];   
-           $texto = $res[$i]['texto'];
-           $foto = $res[$i]['foto'];   
-             ?>
-
-            <div class="item">
-              <div class="box">
-                <div class="img-box">
-                  <img src="sistema/painel/img/comentarios/<?php echo $foto ?>" alt="" class="img-1">
-                </div>
-                <div class="detail-box">
-                  <h5>
-                    <?php echo $nome ?>
-                  </h5>
-                  
-                  <p>
-                    <?php echo $texto ?>
-                  </p>
-                </div>
-              </div>
-            </div>
+		</form>
 
 
-<?php } ?>
+		</div>
 
-          </div>
-        </div>
-      </div>
-    </div>
 
-     <div class="btn-box2">
-        <a href="" data-toggle="modal" data-target="#modalComentario">
-         Inserir Depoimento
-        </a>
-      </div>
+	</div>
 
-  </section>
 
-<?php } ?>
+</div>
 
-  <!-- end client section -->
 
-  <?php require_once("rodape.php") ?>
+
+
+<?php require_once("rodape.php") ?>
+
+
+
+
+
 
   <!-- Modal Depoimentos -->
-  <div class="modal fade" id="modalComentario" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="modalExcluir" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Inserir Depoimento
+          <h5 class="modal-title" id="exampleModalLabel">Excluir Agendamento
                    </h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="margin-top: -20px">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="margin-top: -20px" id="btn-fechar-excluir">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         
-        <form id="form">
+        <form id="form-excluir">
       <div class="modal-body">
 
-          <div class="row">
-            <div class="col-md-12">
-              <div class="form-group">
-                <label for="exampleInputEmail1">Nome</label>
-                <input type="text" class="form-control" id="nome_cliente" name="nome" placeholder="Nome" required>    
-              </div>  
-            </div>
-            <div class="col-md-12">
+      	<span id="msg-excluir"></span>
+                   
+            <input type="hidden" name="id" id="id_excluir">
 
-              <div class="form-group">
-                <label for="exampleInputEmail1">Texto <small>(Até 500 Caracteres)</small></label>
-                <textarea maxlength="500" class="form-control" id="texto_cliente" name="texto" placeholder="Texto Comentário" required> </textarea>   
-              </div>  
-            </div>
-          </div>
-
-
-                
-
-            <div class="row">
-              <div class="col-md-8">            
-                <div class="form-group"> 
-                  <label>Foto</label> 
-                  <input class="form-control" type="file" name="foto" onChange="carregarImg();" id="foto">
-                </div>            
-              </div>
-              <div class="col-md-4">
-                <div id="divImg">
-                  <img src="sistema/painel/img/comentarios/sem-foto.jpg"  width="80px" id="target">                  
-                </div>
-              </div>
-
-            </div>
-
-
-          
-            <input type="hidden" name="id" id="id">
-             <input type="hidden" name="cliente" value="1">
 
           <br>
-          <small><div id="mensagem-comentario" align="center"></div></small>
+          <small><div id="mensagem-excluir" align="center"></div></small>
         </div>
 
         <div class="modal-footer">      
-          <button type="submit" class="btn btn-primary">Inserir</button>
+          <button type="submit" class="btn btn-danger">Excluir</button>
         </div>
       </form>
 
@@ -397,108 +153,307 @@ if($total_reg > 0){
   </div>
 
 
+
+
+
+
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+<style type="text/css">
+	.select2-selection__rendered {
+		line-height: 45px !important;
+		font-size:16px !important;
+		color:#000 !important;
+
+	}
+
+	.select2-selection {
+		height: 45px !important;
+		font-size:16px !important;
+		color:#000 !important;
+
+	}
+</style>  
+
+
+
 <script type="text/javascript">
-  
-$("#form-email").submit(function () {
+	$(document).ready(function() {
+		document.getElementById("botao_editar").style.display = "none";		
+		$('.sel2').select2({
+			
+		});
+	});
+</script>
 
-    event.preventDefault();
-    var formData = new FormData(this);
+<script type="text/javascript">
 
-    $.ajax({
-        url: 'ajax/enviar-email.php',
-        type: 'POST',
-        data: formData,
-
-        success: function (mensagem) {
-            $('#mensagem').text('');
-            $('#mensagem').removeClass()
-            if (mensagem.trim() == "Enviado com Sucesso") {
-               $('#mensagem').addClass('text-success')
-                $('#mensagem').text(mensagem)
-
-            } else {
-
-                $('#mensagem').addClass('text-danger')
-                $('#mensagem').text(mensagem)
-            }
+	function mudarFuncionario(){
+		var  funcionario = $('#funcionario').val();
+		var data = $('#data').val();		
+		var hora = $('#hora_rec').val();
 
 
-        },
+		listarHorarios(6, data, hora);
+		listarFuncionario();	
 
-        cache: false,
-        contentType: false,
-        processData: false,
-
-    });
-
-});
-
-
+	}
 </script>
 
 
 
 <script type="text/javascript">
-  function carregarImg() {
-    var target = document.getElementById('target');
-    var file = document.querySelector("#foto").files[0];
-    
-        var reader = new FileReader();
+	function listarHorarios(funcionario, data, hora){	
 
-        reader.onloadend = function () {
-            target.src = reader.result;
-        };
+		$.ajax({
+			url: "ajax/listar-horarios.php",
+			method: 'POST',
+			data: {funcionario, data, hora},
+			dataType: "text",
 
-        if (file) {
-            reader.readAsDataURL(file);
+			success:function(result){
+				if(result.trim() === '000'){
+					alert('Selecione uma data igual ou maior que hoje!');
 
-        } else {
-            target.src = "";
-        }
-    }
+					var dt = new Date();
+					var dia = String(dt.getDate()).padStart(2, '0');
+					var mes = String(dt.getMonth() + 1).padStart(2, '0');
+					var ano = dt.getFullYear();
+					dataAtual = ano + '-' + mes + '-' + dia;
+					$('#data').val(dataAtual);
+					return;
+				}else{
+					$("#listar-horarios").html(result);
+				}
+				
+			}
+		});
+	}
 </script>
 
 
 
 <script type="text/javascript">
-  
-$("#form").submit(function () {
 
-    event.preventDefault();
-    var formData = new FormData(this);
+	function buscarNome(){
+		var tel = $('#telefone').val();	
+		listarCartoes(tel);	
+		
+		$.ajax({
+			url: "ajax/listar-nome.php",
+			method: 'POST',
+			data: {tel},
+			dataType: "text",
 
+			success:function(result){
+				var split = result.split("*");
+				console.log(split[3])
 
-    $.ajax({
-        url: 'sistema/painel/paginas/comentarios/salvar.php',
-        type: 'POST',
-        data: formData,
+				if(split[2] == "" || split[2] == undefined){
 
-        success: function (mensagem) {
-            $('#mensagem-comentario').text('');
-            $('#mensagem-comentario').removeClass()
-            if (mensagem.trim() == "Salvo com Sucesso") {
-            
-            $('#mensagem-comentario').addClass('text-success')
-                $('#mensagem-comentario').text('Comentário Enviado para Aprovação!')
-                 $('#nome_cliente').val('');
-                  $('#texto_cliente').val('');
-
-            } else {
-
-                $('#mensagem-comentario').addClass('text-danger')
-                $('#mensagem-comentario').text(mensagem)
-            }
+				}else{
+					$("#funcionario").val(parseInt(split[2])).change();
+				}
 
 
-        },
+				if(split[5] == "" || split[5] == undefined){
+					document.getElementById("botao_editar").style.display = "none";					
+				}else{
+					$("#servico").val(parseInt(split[5])).change();
+					document.getElementById("botao_editar").style.display = "block";					
+					$("#botao_salvar").text('Novo Agendamento');
+				}
 
-        cache: false,
-        contentType: false,
-        processData: false,
+				$("#nome").val(split[0]);
+				
 
-    });
-
-});
+				$("#msg-excluir").text('Deseja Realmente excluir esse agendamento feito para o dia ' + split[7] + ' às ' + split[4]);
 
 
+				mudarFuncionario()
+				
+
+
+			}
+		});	
+
+
+
+
+	}
+</script>
+
+
+
+<script type="text/javascript">
+	
+	function salvar(){
+		$('#id').val('');
+			}
+</script>
+
+
+
+
+<script>
+
+	$("#form-agenda").submit(function () {
+		event.preventDefault();
+
+
+		var formData = new FormData(this);
+
+		$.ajax({
+			url: "ajax/agendar.php",
+			type: 'POST',
+			data: formData,
+
+			success: function (mensagem) {
+				
+				$('#mensagem').text('');
+				$('#mensagem').removeClass()
+				if (mensagem.trim() == "Agendado com Sucesso") {                    
+					$('#mensagem').text(mensagem)
+					buscarNome()
+
+					var nome = $('#nome').val();
+					var data = $('#data').val();
+					var hora = document.querySelector('input[name="hora"]:checked').value;
+					var obs = $('#obs').val();
+					var nome_func = $('#nome_func').val();
+					var nome_serv = $('#nome_serv').val();
+
+					var dataF = data.split("-");
+					var dia = dataF[2];
+					var mes = dataF[1];
+					var ano = dataF[0];
+					var dataFormatada = dia + '/' + mes + '/' + ano;
+
+					var horaF = hora.split(':');
+					var horaH = horaF[0];
+					var horaM = horaF[1];
+					var horaFormatada = horaH + ':' + horaM;
+
+
+					window.location="meus-agendamentos.php";	
+
+					var msg_agendamento = "<?=$msg_agendamento?>";
+
+					if(msg_agendamento == 'Sim'){
+
+				let a= document.createElement('a');
+			          a.target= '_blank';
+			          a.href= 'http://api.whatsapp.com/send?1=pt_BR&phone=<?=$tel_whatsapp?>&text= _Novo Agendamento_ %0A Funcionário: *' + nome_func + '* %0A Serviço: *' + nome_serv + '* %0A Data: *' + dataFormatada + '* %0A Hora: *' + horaFormatada + '* %0A Cliente: *' + nome + '*  %0A %0A ' + obs;
+			          a.click();
+			          return;		
+
+			      }
+
+
+				}
+
+			
+
+				 else {
+					//$('#mensagem').addClass('text-danger')
+					$('#mensagem').text(mensagem)
+				}
+
+			},
+
+			cache: false,
+			contentType: false,
+			processData: false,
+
+		});
+
+	});
+
+</script>
+
+
+
+
+
+<script type="text/javascript">
+	
+	function listarCartoes(tel){
+
+			$.ajax({
+			url: "ajax/listar-cartoes.php",
+			method: 'POST',
+			data: {tel},
+			dataType: "text",
+
+			success:function(result){
+				$("#listar-cartoes").html(result);
+			}
+		});
+		
+			}
+</script>
+
+
+
+
+
+<script type="text/javascript">
+
+	function listarFuncionario(){	
+		var func = $("#funcionario").val();
+		
+		$.ajax({
+			url: "ajax/listar-funcionario.php",
+			method: 'POST',
+			data: {func},
+			dataType: "text",
+
+			success:function(result){
+				$("#nome_func").val(result);
+			}
+		});
+	}
+</script>
+
+
+<script type="text/javascript">
+	function mudarServico(){
+			listarFuncionarios()
+			mudarFuncionario()	
+		var serv = $("#servico").val();
+		
+		$.ajax({
+			url: "ajax/listar-servico.php",
+			method: 'POST',
+			data: {serv},
+			dataType: "text",
+
+			success:function(result){
+				$("#nome_serv").val(result);
+
+				mudarFuncionario()
+
+			}
+		});
+	}
+
+</script>
+
+
+<script type="text/javascript">
+	function listarFuncionarios(){	
+		var serv = $("#servico").val();
+		
+		$.ajax({
+			url: "ajax/listar-funcionarios.php",
+			method: 'POST',
+			data: {serv},
+			dataType: "text",
+
+			success:function(result){
+				$("#funcionario").html(result);
+			}
+		});
+	}
 </script>

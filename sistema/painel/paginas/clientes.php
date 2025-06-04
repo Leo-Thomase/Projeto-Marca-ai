@@ -35,10 +35,6 @@ if(@$clientes == 'ocultar'){
 </div>
 
 
-
-
-
-
 <!-- Modal Inserir-->
 <div class="modal fade" id="modalForm" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 	<div class="modal-dialog" role="document">
@@ -67,20 +63,6 @@ if(@$clientes == 'ocultar'){
 						</div>
 					
 					</div>
-
-					<div class="row">
-
-							<div class="col-md-5">
-							<div class="form-group">
-								<label for="exampleInputEmail1">Cartões</label>
-								<input type="number" class="form-control" id="cartao" name="cartao"  value="0">    
-							</div> 	
-						</div>
-					</div>
-						
-				
-
-
 					
 						<input type="hidden" name="id" id="id">
 
@@ -119,13 +101,7 @@ if(@$clientes == 'ocultar'){
 					<div class="col-md-6">							
 						<span><b>Telefone: </b></span>
 						<span id="telefone_dados"></span>
-					</div>	
-
-					<div class="col-md-6">							
-						<span><b>Cartões: </b></span>
-						<span id="cartoes_dados"></span>							
-					</div>
-									
+					</div>									
 
 				</div>
 

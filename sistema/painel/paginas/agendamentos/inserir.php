@@ -68,7 +68,7 @@ if($not_sistema == 'Sim'){
 	require('../../../../api/notid.php');
 } 
 
-$msg_agendamento = 'Api'
+$msg_agendamento = 'Api';
 
 if($msg_agendamento == 'Api'){
 

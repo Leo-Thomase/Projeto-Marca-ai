@@ -28,8 +28,6 @@ echo <<<HTML
 	<th>Nome</th>	
 	<th class="esc">Telefone</th> 
 	<th class="esc">Cadastro</th> 	
-	<th class="esc">Retorno</th> 
-	<th class="esc">Cartões</th> 
 	<th>Ações</th>
 	</tr> 
 	</thead> 
@@ -96,8 +94,6 @@ echo <<<HTML
 <td>{$nome}</td>
 <td class="esc">{$telefone}</td>
 <td class="esc">{$data_cadF}</td>
-<td class="esc {$classe_retorno}">{$data_retornoF}</td>
-<td class="esc">{$cartoes}</td>
 <td>
 		<big><a href="#" onclick="editar('{$id}','{$nome}', '{$telefone}', '{$cartoes}')" title="Editar Dados"><i class="fa fa-edit text-primary"></i></a></big>
 

@@ -1,15 +1,15 @@
 <?php 
 
-$banco = 'u852078850_marcaai';
-$usuario = 'u852078850_marcaai';
-$senha = 'Marcaai2025@';
+$banco = 'neymarques';
+$usuario = 'root';
+$senha = '';
 $servidor = 'localhost';
 
 
 $url_sistema = "http://$_SERVER[HTTP_HOST]/";
 $url = explode("//", $url_sistema);
 if($url[1] == 'localhost/'){
-	$url_sistema = "http://$_SERVER[HTTP_HOST]/barbearia/";
+	$url_sistema = "http://$_SERVER[HTTP_HOST]/marcaai/";
 }
 
 date_default_timezone_set('America/Sao_Paulo');

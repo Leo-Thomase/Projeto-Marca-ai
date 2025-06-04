@@ -30,11 +30,10 @@ if($total_reg > 0){
 		
 
 		 echo '<li>';
-             echo '<a href="#" class="item-link item-content" onclick="editarCliente('.$id.', \''.$nome.'\', \''.$telefone.'\', \''.$data_cadF.'\', \''.$whats.'\', \''.$cartoes.'\', \''.$data_retornoF.'\')">'; 
+             echo '<a href="#" class="item-link item-content" onclick="editarCliente('.$id.', \''.$nome.'\', \''.$telefone.'\', \''.$data_cadF.'\', \''.$whats.'\', \''.$data_retornoF.'\')">'; 
                          
               echo ' <div class="item-inner">';
                 echo ' <div class="item-title" style="font-size:11px">';
-                  echo ' <div class="item-header " style="font-size:9px">Cartões: '.$cartoes.'</div>'.$nome;
                   echo'<div class="item-footer" style="font-size:9px">'.$telefone.'</div>';
                  echo '</div>';
                 echo ' <div class="item-after" style="font-size:9px">'.$data_cadF.'</div>';
